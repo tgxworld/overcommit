@@ -23,7 +23,7 @@ module Overcommit::Hook::PreCommit
 
       return :bad, error_lines.join("\n") unless error_lines.empty?
       return :warn, "Modified files have lints (on lines you didn't modify)\n" <<
-                    warning_lines.join("\n")
+                    warning_lines.join("\n") unless warning_lines.empty?
     end
   end
 end
